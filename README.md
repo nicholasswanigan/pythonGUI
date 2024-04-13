@@ -1,4 +1,4 @@
-**Rocket League Automation Script**
+****Rocket League Automation Script****
 This script automates the process of opening OBS Studio, BakkesMod, focusing on the Rocket League window, and running specific commands within Rocket League using pyautogui.
 
 How it works
