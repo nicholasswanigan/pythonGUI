@@ -7,86 +7,98 @@ import time
 import win32gui
 import win32con
 
+# Finds window by its title
 def find_window_by_title(title):
-    hwnd = win32gui.FindWindow(None, title)
-    if hwnd:
-        win32gui.ShowWindow(hwnd, win32con.SW_RESTORE)
-        win32gui.SetForegroundWindow(hwnd)
-    return hwnd
+    try:
+        hwnd = win32gui.FindWindow(None, title)
+        if hwnd:
+            win32gui.ShowWindow(hwnd, win32con.SW_RESTORE)
+            win32gui.SetForegroundWindow(hwnd)
+        return hwnd
+    except Exception as e:
+        print("Error:", e)
+        return None
 
+
+# Opens OBS
 def open_obs():
     os.system("start /d \"C:\\Program Files\\obs-studio\\bin\\64bit\" obs64.exe")
 
+# Opens BakkesMod
 def open_bakkes_mod():
-    subprocess.Popen([r"C:\Program Files\BakkesMod\BakkesMod.exe"])
+    os.system("start /d \"C:\\Program Files\\BakkesMod\" BakkesMod.exe")
 
+# Opens command prompt, navigates to file path, connects to the relay server via node, and completes the prompts
 def open_console_and_run_node():
     try:
-        # Get the current user's username
-        username = os.getlogin()
+        relay_path = r"C:\Users\{}\Documents\Rocket_League_Overlay\Rocket League DO\relayserverandplugin\SOS Relay Server (run in cmd with node)\sos-ws-relay-master".format(
+            os.getlogin())
 
-        # Construct the relay path
-        relay_path = r"C:\Users\{}\Documents\Rocket League Dynamic Overlay\overlay.html".format(username)
+        # Construct the command to change directory and run node.js
+        command = 'cmd /k "cd {} && node ./ws-relay.js"'.format(relay_path)
 
-        # Construct the command to run Node.js in the command prompt
-        command = 'start /d "{}" cmd /k node ./ws-relay.js'.format(relay_path)
+        # Open command prompt and run node.js
+        os.system("start " + command)
 
-        # Use subprocess to open a command prompt and run the command
-        subprocess.Popen(['cmd.exe', '/c', command])
-        time.sleep(3)  # Wait for the command prompt to open and Node.js script to run
-
-        # Simulate pressing Enter using pyautogui
-        pyautogui.press('enter')
-        time.sleep(1)
-        pyautogui.press('enter')
-        time.sleep(1)
-        pyautogui.press('enter')
+        # Simulate pressing Enter 3 times
+        for _ in range(4):
+            pyautogui.press('enter')
+            time.sleep(1)
 
     except Exception as ex:
-        ex.printStackTrace()
-        messagebox.showerror("Error", "Error executing commands: " + str(ex))
+        print("Error:", ex)
+
+# Finds Rocket League window based on window title text
+def focus_rocket_league_window():
+    rocket_league_title = "Rocket League (64-bit, DX11, Cooked)"
+    find_window_by_title(rocket_league_title)
 
 def open_apps_and_run_commands():
     open_console_and_run_node()  # Run Node.js script first
-    time.sleep(5)  # Wait for Node.js script to start (adjust as needed)
 
-    open_obs()
-    time.sleep(5)  # Wait for OBS Studio to open
     open_bakkes_mod()
-    time.sleep(5)  # Wait for BakkesMod to open
+    time.sleep(11)  # Wait for BakkesMod to inject DLL files
 
-    rocket_league_title = "Rocket League (64-bit, DX11, Cooked)"
-    rocket_league_hwnd = find_window_by_title(rocket_league_title)
+    focus_rocket_league_window()  # Bring Rocket League window to foreground
+    time.sleep(10)  # Wait for BakkesMod to fully integrate with Rocket League
 
-    if not rocket_league_hwnd:
-        messagebox.showerror("Error", "Rocket League window not found. Open Rocket League first.")
-        return
-
-    time.sleep(1)  # Wait for window activation
-
-    # Run F6 command and subsequent commands
+    # Run F6 command
     pyautogui.press('f6')
     time.sleep(1)  # Wait for F6 command to run
-    pyautogui.typewrite('plugin')
-    time.sleep(1)  # Adjust sleep time as needed
-    pyautogui.typewrite(' load')
-    time.sleep(1)  # Adjust sleep time as needed
-    pyautogui.typewrite(' sos')
-    time.sleep(3)  # Wait after typing 'sos'
 
-    pyautogui.press('enter')
+    # Types out "plugin load sos"
+    # Must be done this way or you risk missing letters by entering in all at once
+    command = "plugin load sos"
+    for c in command:
+        pyautogui.press(c)
+        time.sleep(0.1)
+
+    pyautogui.press('enter') #not working
+
+    open_obs()
 
 # Create GUI
 root = tk.Tk()
-root.title("Rocket League Automation")
+root.title("OTC eSports Rocket League Overlay")
+
+# Set the initial size of the window
+root.geometry("400x100")
 
 # Add label
-label = tk.Label(root, text="Please open Rocket League first.", pady=10)
+label_text = tk.StringVar(value="Run Overlay")
+label = tk.Label(root, textvariable=label_text, pady=10)
 label.pack()
 
+# Function to update label text and run commands
+def update_label_and_run_commands():
+    label_text.set("Building overlay... \n\n Please wait for OBS")
+    root.update_idletasks()  # Update GUI to show the new label text
+    open_apps_and_run_commands()
+
 # Add button
-button = tk.Button(root, text="Automate Rocket League", command=open_apps_and_run_commands)
+button = tk.Button(root, text="Run Overlay", command=update_label_and_run_commands)
 button.pack()
+
 
 # Run the GUI
 root.mainloop()
