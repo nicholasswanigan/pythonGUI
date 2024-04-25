@@ -22,24 +22,20 @@ def find_window_by_title(title):
 
 # Opens OBS
 def open_obs():
-    os.system("start /d \"C:\\Program Files\\obs-studio\\bin\\64bit\" obs64.exe")
+    os.system("start /d \"D:\\obs-studio\\bin\\64bit\" obs64.exe")
 
 # Opens BakkesMod
 def open_bakkes_mod():
-    os.system("start /d \"C:\\Program Files\\BakkesMod\" BakkesMod.exe")
+    os.system("start /d \"D:\\bakkesmod\" BakkesMod.exe")
 
 # Opens command prompt, navigates to file path, connects to the relay server via node, and completes the prompts
 def open_console_and_run_node():
     try:
-        relay_path = r"C:\Users\{}\Documents\Rocket_League_Overlay\Rocket League DO\relayserverandplugin\SOS Relay Server (run in cmd with node)\sos-ws-relay-master".format(
-            os.getlogin())
+        # Define the command to change directory in PowerShell
+        command = ' cmd cd "D:\\Rocket_League_Overlay\\Rocket League DO\\relayserverandplugin\\SOS Relay Server (run in cmd with node)\\sos-ws-relay-master"'
 
-        # Construct the command to change directory and run node.js
-        command = 'cmd /k "cd {} && node ./ws-relay.js"'.format(relay_path)
-
-        # Open command prompt and run node.js
-        os.system("start " + command)
-
+        # Execute the command using os.system
+        os.system("start" + command)
         # Simulate pressing Enter 3 times
         for _ in range(4):
             pyautogui.press('enter')
@@ -57,10 +53,10 @@ def open_apps_and_run_commands():
     open_console_and_run_node()  # Run Node.js script first
 
     open_bakkes_mod()
-    time.sleep(11)  # Wait for BakkesMod to inject DLL files
+    time.sleep(5)  # Wait for BakkesMod to inject DLL files
 
     focus_rocket_league_window()  # Bring Rocket League window to foreground
-    time.sleep(10)  # Wait for BakkesMod to fully integrate with Rocket League
+    time.sleep(5)  # Wait for BakkesMod to fully integrate with Rocket League
 
     # Run F6 command
     pyautogui.press('f6')
