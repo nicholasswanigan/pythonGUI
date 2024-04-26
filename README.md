@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This script automates the process of setting up OBS Studio, launching BakkesMod, focusing on the Rocket League window, and executing specific commands within Rocket League using pyautogui all in an attempt to provide live rendering of everyone's stats for a more interactive viewing experience.
+This script automates the process of setting up OBS Studio, launching BakkesMod, focusing on the Rocket League window, and executing specific commands within Rocket League all in an attempt to provide live rendering of everyone's stats for a more interactive viewing experience.
 
 ## Installation
 
