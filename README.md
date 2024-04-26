@@ -44,6 +44,7 @@ This script automates the process of setting up OBS Studio, launching BakkesMod,
    - Click next to the text and press Enter.
    - Close the black window.
    - In OBS Studio, refresh the overlay source in the quick edit toolbar under the main display screen.
+   - The sence should be set for you to join the match.
 
 ## Post-Game Actions
 
