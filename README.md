@@ -1,12 +1,8 @@
-## Rocket League Overlay
-
-This script automates the process of setting up OBS Studio, launching BakkesMod, focusing on the Rocket League window, and executing specific commands within Rocket League using pyautogui.
-
 # Rocket League Overlay README
 
 ## Introduction
 
-This Rocket League overlay is built using Node.js and provides live rendering of everyone's stats in the game using BakkesMod information.
+This script automates the process of setting up OBS Studio, launching BakkesMod, focusing on the Rocket League window, and executing specific commands within Rocket League using pyautogui all in an attempt to provide live rendering of everyone's stats for a more interactive viewing experience.
 
 ## Installation
 
