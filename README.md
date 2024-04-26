@@ -2,35 +2,91 @@
 
 This script automates the process of setting up OBS Studio, launching BakkesMod, focusing on the Rocket League window, and executing specific commands within Rocket League using pyautogui.
 
-### How it works
+# Rocket League Overlay README
 
-Import Libraries: The script imports necessary libraries such as tkinter for creating the GUI, os for system operations, subprocess for running commands, pyautogui for GUI automation, and win32gui and win32con for managing windows.
+## Introduction
 
-### Window Management Functions:
+This Rocket League overlay is built using Node.js and provides live rendering of everyone's stats in the game using BakkesMod information.
 
-find_window_by_title(title): Locates a window by its title and brings it to the forefront.
-open_obs(): Launches OBS Studio using the system command.
-open_bakkes_mod(): Opens BakkesMod via subprocess.
+## Installation
 
-### Running Commands in Console:
+1. **Download Game Launcher**
+   - Download Epic Games or a compatible game launcher to download and launch Rocket League.
 
-open_console_and_run_node(): Initiates a command prompt, navigates to a specific file path, connects to the relay server via node.js, and completes the required prompts.
+2. **Download Components**
+   - Download the following components:
+     - BakkesMod.zip
+     - Node.js
+     - OBS Studio
+     - Python GUI
+     - Rocket_League_Overlay
 
-### Main Function:
+3. **USB Drive Setup**
+   - Plugin a USB drive and reformat it:
+     - Right-click on the USB drive, format it with exFAT (Default) file system, and name it "K" (D: drive type).
 
-open_apps_and_run_commands(): Executes the aforementioned functions in sequence, waits for each process to complete, and performs GUI automation within Rocket League.
-Graphical User Interface 
+4. **Extract Components**
+   - Extract all downloaded components to the formatted USB drive.
 
-### (GUI):
+## Usage
 
-The script generates a simple GUI using tkinter with a label instructing the user to open Rocket League first and a button to start the automation process.
+1. **Launch Rocket League**
+   - Open Rocket League to reach the main intro screen.
 
-### Usage
+2. **Run Overlay**
+   - Navigate to the USB drive location and run the main program (double-click).
 
-Ensure Python and the required libraries (tkinter, pyautogui, win32gui, win32con) are installed.
-Run the script.
-Click the "Run Overlay" button on the GUI after launching Rocket League.
+3. **Handling Issues**
+   - Ensure Caps Lock is off.
+   - Don't touch anything after pressing the "Run Overlay" button until OBS Studio pops up.
+   - If anything goes wrong, close everything except Rocket League and return to the main screen.
 
-### Note
+4. **Running the Overlay**
+   - Click the "Run Overlay" button in the main program (blue feather icon).
+   - Wait for OBS Studio to open.
+   - In Rocket League, a black window should open with the text "plugin load sos" (press F6 and type manually if not).
+   - Click next to the text and press Enter.
+   - Close the black window.
+   - In OBS Studio, refresh the overlay source in the quick edit toolbar under the main display screen.
 
-Ensure to adjust the file paths and sleep times in the code according to your system and requirements. This script relies on GUI automation and may not work reliably if window positions or sizes change.
+## Post-Game Actions
+
+After the game ends:
+- Display a winning screen or hide the overlay to use default winning animations.
+	- There will be a full-screen stat sheet after everygame so you will have time to make adjustments in OBS Studio.
+
+## Components
+
+1. **Node.js Instance**
+   - Node.js is a JavaScript runtime used to build server-side applications.
+
+2. **OBS Studio**
+   - OBS Studio is used for video recording and live streaming.
+
+3. **BakkesMod**
+   - BakkesMod is a third-party mod for Rocket League, providing additional features and functionality.
+
+4. **Rocket_League_Overlay (JavaScript)**
+   - This component is a self-built JavaScript overlay for displaying real-time stats in Rocket League.
+
+5. **pythonGUI (Python Code)**
+   - The pythonGUI component contains the main Python code for controlling and managing the overlay.
+
+6. **Main Program**
+   - The main program wraps up all components and orchestrates their interactions.
+
+## Making Changes 
+
+1. **Changing the RunOverlay GUI**
+   - Open the pythonGUI code in a code editor and then rebuild the program after your done
+
+2. **Changing the Overlay Style**
+   - Drill into the Rocket_League_Overlay folder and open the "D:\Rocket_League_Overlay\Rocket League DO\Rocket League Dynamic Overlay" in a code editor and make changes through there
+
+## Support and Feedback
+
+For questions or if issues arise feel free to email myself or one of contibuter:
+
+Nick Swanigan (nickswanigan04@gmail.com)
+
+We will be working on improvements and better designs within the code this summer (2024)
