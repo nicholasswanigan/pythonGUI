@@ -44,6 +44,7 @@ This script automates the process of setting up OBS Studio, launching BakkesMod,
    - Click next to the text and press Enter.
    - Close the black window.
    - In OBS Studio, refresh the overlay source in the quick edit toolbar under the main display screen.
+   	- In testing we did find we needed to change the source of overlay to this <file:///D:/Rocket_League_Overlay/Rocket%20League%20DO/Rocket%20League%20Dynamic%20Overlay/overlay.html> (without the <>) this is because we changed that location of the relay server last min. 
    - The sence should be set for you to join the match.
 
 ## Post-Game Actions
