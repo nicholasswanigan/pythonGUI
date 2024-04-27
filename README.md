@@ -87,4 +87,6 @@ For questions or if issues arise feel free to email myself or one of contibuter:
 
 Nick Swanigan (nickswanigan04@gmail.com)
 
+Matthew Ballard (matthew.majoba@gmail.com)
+
 We will be working on improvements and better designs within the code this summer (2024)
