@@ -11,15 +11,15 @@ This script automates the process of setting up OBS Studio, launching BakkesMod,
 
 2. **Download Components**
    - Download the following components:
-     - BakkesMod.zip
-     - Node.js
-     - OBS Studio
-     - Python GUI
-     - Rocket_League_Overlay
+     - BakkesMod.zip (From Web
+     - Node.js (From Web)
+     - OBS Studio (From Web)
+     - Python GUI (On Flash)
+     - Rocket_League_Overlay (No Flash)
 
 3. **USB Drive Setup**
    - Plugin a USB drive and reformat it:
-     - Right-click on the USB drive, format it with exFAT (Default) file system, and name it "K" (D: drive type).
+     - Right-click on the USB drive, format it with exFAT (Default) file system, and name it "K" .
 
 4. **Extract Components**
    - Extract all downloaded components to the formatted USB drive.
