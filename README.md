@@ -20,6 +20,10 @@ This script automates the process of setting up OBS Studio, launching BakkesMod,
 3. **USB Drive Setup**
    - Plugin a USB drive and reformat it:
      - Right-click on the USB drive, format it with exFAT (Default) file system, and name it "K" .
+     - Type in Disk Managment in the magnifying glass in the bottom left
+     - Right click the flash drive and click change drive and letter paths
+     - Click change then find the letter V and hit ok
+       
 
 4. **Extract Components**
    - Extract all downloaded components to the formatted USB drive.
