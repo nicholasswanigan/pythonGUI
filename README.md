@@ -11,7 +11,7 @@ This script automates the process of setting up OBS Studio, launching BakkesMod,
 
 2. **Download Components**
    - Download the following components:
-     - BakkesMod.zip (From Web
+     - BakkesMod.zip (From Web)
      - Node.js (From Web)
      - OBS Studio (From Web)
      - Python GUI (On Flash)
@@ -27,6 +27,9 @@ This script automates the process of setting up OBS Studio, launching BakkesMod,
 
 4. **Extract Components**
    - Extract all downloaded components to the formatted USB drive.
+  
+5. **Watch Set-up Videos**
+   - Watch Nodesetup, obs setup, Overview, DiskManager, sosDLLsetup and the how to change style Video for a first time setup for the overlay
 
 ## Usage
 
